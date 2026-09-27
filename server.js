@@ -15,7 +15,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin:true,
+    // origin:true,
+    origin: "https://mern-ecomerce-frontend-j2lezog9e-navneet-maurya.vercel.app",
     method:["GET","POST","PUT","DELETE"],
     credentials:true
 }));
