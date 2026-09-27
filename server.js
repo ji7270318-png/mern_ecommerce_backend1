@@ -52,8 +52,4 @@ mongoose.connect(
 }).catch((error) => {
     console.error("Error connecting to MongoDB:", error);
 });    
-
-const port=3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export default app;
