@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors({
     // origin:true,
-    origin: "https://mern-ecomerce-frontend-j2lezog9e-navneet-maurya.vercel.app",
+    origin: "http://localhost:5173",
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }));
@@ -46,11 +46,15 @@ app.use('/api/address', addressRouter);
 app.use('/api/payment', paymentRouter);
 
 mongoose.connect(
-    "mongodb+srv://navneetmaurya2005_db_user:56TytR7COxTcwr0y@cluster0.zlpd4qc.mongodb.net/ecommerce?retryWrites=true&w=majority",
+    process.env.MONGO_URI,
     { dbName: "mern_e_commerce" }
 ).then(() => {
     console.log("Connected to MongoDB");
 }).catch((error) => {
     console.error("Error connecting to MongoDB:", error);
-});    
+}); 
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(3000, () => console.log("Server running on port 3000"));
+}
 export default app;
