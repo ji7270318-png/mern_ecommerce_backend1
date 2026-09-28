@@ -14,12 +14,21 @@ import paymentRouter from "./Routes/payment.js";
 const app = express();
 
 app.use(bodyParser.json());
+// app.use(cors({
+//     // origin:true,
+//     origin: "http://localhost:5173",
+//     methods:["GET","POST","PUT","DELETE"],
+//     credentials:true
+// }));
 app.use(cors({
-    // origin:true,
-    origin: "http://localhost:5173",
-    methods:["GET","POST","PUT","DELETE"],
-    credentials:true
+    origin: [
+        "http://localhost:5173",
+        "https://mern-ecomerce-frontend-sandy.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 
 
 // home route
