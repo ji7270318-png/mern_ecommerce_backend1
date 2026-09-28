@@ -1,6 +1,5 @@
 import {Address} from '../Models/Address.js';
 
-//add address
 const addAddress=async (req,res)=>{
     const {fullName,address,city,state,country,pincode,phoneNumber}=req.body;
     const userId=req.user;
