@@ -68,8 +68,14 @@ mongoose.connect(
 // }
 const PORT = process.env.PORT || 3000;
 
+console.log("ABOUT TO START SERVER");
+console.log("PORT =", PORT);
+
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+export default app;
+
 
 export default app;
